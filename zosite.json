@@ -1,0 +1,15 @@
+{
+  "name": "gaslightbench",
+  "local_port": 55883,
+  "entrypoint": "bun run dev",
+  "publish": {
+    "label": "gaslightbench",
+    "type": "http",
+    "entrypoint": "bun run prod",
+    "published_port": 53360,
+    "env": {
+      "NODE_ENV": "production",
+      "ZO_CLIENT_IDENTITY_TOKEN": "none"
+    }
+  }
+}
