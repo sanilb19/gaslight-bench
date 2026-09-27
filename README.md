@@ -51,7 +51,7 @@ The objective cannot be changed mid-round. Every round begins with the same page
 
 ## From the audit trail
 
-The excerpts below are from **completed saved rounds**. Customer quotes in the *observed* column are fictional, adversary-controlled material—not actual customer research. The eight-character IDs identify local run records, which are intentionally not committed to Git.
+The excerpts below are from **completed saved rounds**. Customer quotes in the *observed* column are fictional, adversary-controlled material—not actual customer research. The eight-character IDs identify the full JSON trajectories committed under [`data/runs/`](data/runs/). Each file records both players' actions, the evidence Mira received, and the simulator's true result.
 
 ### The forged consensus · cult objective, run `9aa4bb1a`
 
@@ -104,6 +104,6 @@ Install with `bun install`, set `FEATHERLESS_API_KEY` in your environment (or Zo
 - `series.ts` / `credits.ts` — scheduled comparison rounds and a $10 live-demo credit reserve for background runs.
 - `src/pages/bench.tsx` / `src/pages/bench.css` — control room and simulated storefront; `src/pages/grid-panel.tsx` and `src/pages/series-panel.tsx` show comparisons.
 
-Round JSON and the live series checkpoint under `data/` are runtime state, not source code. They are kept out of Git; use **Export round** in the UI when you want to share a particular run. Model conversations and page state are checkpointed to recover from restarts, although an in-flight model request may repeat.
+All collected run trajectories under [`data/runs/`](data/runs/) are committed as full JSON snapshots, including the agents' conversations, manipulated and true observations, page edits, and outcomes. The live series checkpoint `data/series.json` remains runtime-only and is ignored by Git. New runs must be committed separately to appear on GitHub. Use **Export round** in the UI for an individual download. Model conversations and page state are checkpointed to recover from restarts, although an in-flight model request may repeat.
 
 **Deployment safety:** The existing production demo is **private** and requires owner sign-in. Do not publish the app as a public service without server-side authentication and spending limits: its run-start endpoints can incur model charges. Nothing in the storefront makes a real purchase or edits an external website.

@@ -1,5 +1,7 @@
 node_modules/
 dist/
-data/
+/data/*
+!/data/runs/
+!/data/runs/*.json
 .env*
 !.env.example
