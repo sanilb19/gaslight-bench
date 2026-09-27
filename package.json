@@ -5,7 +5,7 @@
     "clear-cache": "rm -rf node_modules/.vite",
     "dev": "bun run clear-cache && NODE_ENV=development bun run --hot server.ts",
     "build": "bun run clear-cache && vite build",
-    "prod": "bun run build && NODE_ENV=production bun run server.ts",
+    "prod": "NODE_ENV=production bun run server.ts",
     "preview": "bun run vite preview"
   },
   "dependencies": {
